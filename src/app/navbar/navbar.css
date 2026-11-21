@@ -1,0 +1,46 @@
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--am-navy);
+}
+
+.nav-link {
+  color: var(--am-muted);
+  font-weight: 500;
+  padding: 0.6rem 0;
+}
+
+.nav-link:hover {
+  color: var(--am-ink);
+}
+
+.nav-link.active {
+  color: var(--am-ink);
+  font-weight: 600;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(243, 111, 51, 0.35);
+}
+
+.btn-cotizar {
+  width: 100%;
+  margin: 0.5rem 0 0.75rem;
+}
+
+/* En la página de cotizar el botón se atenúa, como en el mockup */
+.btn-cotizar.activo {
+  opacity: 0.65;
+}
+
+@media (min-width: 992px) {
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-cotizar {
+    width: auto;
+    margin: 0;
+  }
+}

@@ -1,0 +1,83 @@
+<section class="am-page-hero">
+  <div class="container-xl">
+    <h1>Simula tu financiamiento</h1>
+    <p>Calcula una cuota mensual estimada en segundos, sin compromiso.</p>
+  </div>
+</section>
+
+<div class="container-xl py-4 py-md-5">
+  <div class="col-lg-8 col-xl-7 mx-auto">
+    <section class="am-panel" aria-labelledby="titulo-credito">
+      <h2 id="titulo-credito" class="h5 fw-bold mb-1">Datos del crédito</h2>
+      <p class="text-secondary mb-4">Ajusta los valores para ver tu cuota estimada.</p>
+
+      <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label" for="f-vehiculo">Vehículo de interés</label>
+            <select id="f-vehiculo" class="form-select" formControlName="vehiculo" (change)="alElegirVehiculo()">
+              @for (v of vehiculos; track v.id) {
+                <option [ngValue]="v.id">{{ v.nombre }} - {{ v.precio | cop }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="f-precio">Precio del vehículo (COP)</label>
+            <input id="f-precio" class="form-control" type="number" inputmode="numeric" min="1"
+                   formControlName="precio" [class.is-invalid]="malo(form.controls.precio)" />
+            <div class="invalid-feedback">Escribe un precio mayor a 0.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="f-inicial">Cuota inicial (COP)</label>
+            <input id="f-inicial" class="form-control" type="number" inputmode="numeric" min="0"
+                   formControlName="inicial"
+                   [class.is-invalid]="form.touched && (form.controls.inicial.invalid || form.hasError('inicialMayor'))" />
+            <div class="invalid-feedback">La cuota inicial debe ser menor al precio del vehículo.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="f-plazo">Plazo (meses)</label>
+            <select id="f-plazo" class="form-select" formControlName="plazo">
+              @for (p of plazos; track p) {
+                <option [ngValue]="p">{{ p }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="f-tasa">Tasa de interés estimada anual (%)</label>
+            <input id="f-tasa" class="form-control" type="number" inputmode="decimal" min="0" max="100" step="0.1"
+                   formControlName="tasa" [class.is-invalid]="malo(form.controls.tasa)" />
+            <div class="invalid-feedback">Escribe una tasa entre 0 y 100.</div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-brand btn-lg fs-6 w-100">Calcular Cuota</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <!-- Resultado -->
+  <section class="resultado col-xl-10 mx-auto mt-4 mt-md-5" aria-labelledby="titulo-resultado" aria-live="polite">
+    @let r = resultado();
+    <h2 id="titulo-resultado" class="h6 fw-semibold text-white-50 mb-2">Cuota mensual estimada</h2>
+    <p class="cuota">$ {{ miles(r.cuota) }} <span>/mes</span></p>
+
+    <dl class="detalle mb-4">
+      <div><dt>Monto a financiar</dt><dd>$ {{ miles(r.monto) }}</dd></div>
+      <div><dt>Plazo</dt><dd>{{ r.plazo }} meses</dd></div>
+      <div><dt>Tasa anual</dt><dd>{{ r.tasa }}%</dd></div>
+      <div><dt>Total a pagar</dt><dd>$ {{ miles(r.total) }}</dd></div>
+    </dl>
+
+    <a class="btn btn-outline-light d-block mx-auto asesor" routerLink="/contacto"
+       [queryParams]="{ vehiculo: form.controls.vehiculo.value }">
+      Hablar con un asesor
+    </a>
+    <p class="aviso">Valor estimado: la cuota final depende de la aprobación del crédito.</p>
+  </section>
+</div>

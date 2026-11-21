@@ -1,0 +1,52 @@
+<section class="hero">
+  <div class="container-xl">
+    <h1>Encuentra tu carro ideal</h1>
+    <p class="lead">Las mejores marcas, al mejor precio y con garantía.</p>
+    <a routerLink="/catalogo" class="btn btn-brand btn-lg px-5">Ver catálogo</a>
+  </div>
+</section>
+
+<section class="am-surface py-5" aria-labelledby="titulo-destacados">
+  <div class="container-xl">
+    <h2 id="titulo-destacados" class="seccion-titulo text-center mb-4">VEHÍCULOS DESTACADOS</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+      @for (v of destacados; track v.id) {
+        <div class="col">
+          <app-vehiculo-card [vehiculo]="v" accion="comprar" />
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-5" aria-label="Beneficios">
+  <div class="container-xl">
+    <ul class="row list-unstyled text-center g-4 mb-0">
+      <li class="col-12 col-md-4">
+        <div class="icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 5 5 19" /><circle cx="7" cy="7" r="2.2" /><circle cx="17" cy="17" r="2.2" />
+          </svg>
+        </div>
+        <p class="beneficio">Financiamiento fácil</p>
+      </li>
+      <li class="col-12 col-md-4">
+        <div class="icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z" /><path d="m9 12 2 2 4-4" />
+          </svg>
+        </div>
+        <p class="beneficio">Garantía incluida</p>
+      </li>
+      <li class="col-12 col-md-4">
+        <div class="icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="12" height="17" rx="2" /><path d="M9 4h6v3H9z" /><path d="m9.5 14 2 2 3.5-3.5" />
+          </svg>
+        </div>
+        <p class="beneficio">Vehículos peritados</p>
+      </li>
+    </ul>
+  </div>
+</section>

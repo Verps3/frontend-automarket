@@ -1,0 +1,52 @@
+.resultado {
+  background: var(--am-navy);
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .resultado {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.cuota {
+  color: var(--am-orange);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 2.9rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.cuota span {
+  font-size: 0.6em;
+  font-weight: 700;
+}
+
+.detalle div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 0.9rem;
+}
+
+.detalle dt,
+.detalle dd {
+  margin: 0;
+  font-weight: 400;
+}
+
+.asesor {
+  max-width: 28rem;
+  width: 100%;
+}
+
+.aviso {
+  color: #b9c2d6;
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 1rem 0 0;
+}

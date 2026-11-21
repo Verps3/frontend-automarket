@@ -1,0 +1,46 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg bg-white border-bottom py-2" aria-label="Navegación principal">
+    <div class="container-xl">
+      @if (enDetalle()) {
+        <button type="button" class="btn btn-outline-secondary btn-sm me-3" (click)="volver()">
+          <span aria-hidden="true">←</span> Volver
+        </button>
+      }
+
+      <a class="navbar-brand" routerLink="/" (click)="cerrar()">AutoMarket</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        aria-controls="menu-principal"
+        aria-label="Abrir o cerrar el menú"
+        [attr.aria-expanded]="abierto()"
+        (click)="abierto.set(!abierto())"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu-principal" [class.show]="abierto()">
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }" (click)="cerrar()">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/catalogo" routerLinkActive="active" (click)="cerrar()">Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/financiamiento" routerLinkActive="active" (click)="cerrar()">Financiamiento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contacto" routerLinkActive="active" (click)="cerrar()">Contacto</a>
+          </li>
+        </ul>
+
+        <a class="btn btn-brand btn-cotizar" routerLink="/cotizar" routerLinkActive="activo" (click)="cerrar()">
+          Cotizar
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

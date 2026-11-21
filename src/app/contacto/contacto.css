@@ -1,0 +1,17 @@
+.avatar {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--am-placeholder);
+  color: var(--am-navy);
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.miniatura {
+  flex: none;
+  width: 88px;
+  aspect-ratio: 4 / 3;
+}

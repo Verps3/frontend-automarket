@@ -1,0 +1,55 @@
+.principal {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.miniatura {
+  flex: 1 1 0;
+  max-width: 11rem;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.miniatura.activa {
+  border-color: var(--am-navy);
+}
+
+.precio-grande {
+  font-size: 1.9rem;
+}
+
+.descripcion {
+  max-width: 62ch;
+}
+
+.ficha {
+  display: grid;
+  gap: 0.6rem 3rem;
+  grid-template-columns: 1fr;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+dt {
+  color: var(--am-muted);
+  font-weight: 400;
+}
+
+dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .ficha {
+    grid-template-columns: 1fr 1fr;
+  }
+}

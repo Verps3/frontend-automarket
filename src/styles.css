@@ -1,0 +1,236 @@
+/* ---------- Tokens (tomados de los mockups) ---------- */
+:root {
+  --am-navy: #16213a;
+  --am-navy-soft: #223055;
+  --am-orange: #f36f33;
+  --am-orange-hover: #e0601f;
+  --am-orange-text: #e0581c; /* naranja para texto sobre blanco, más contraste */
+  --am-surface: #f3f6f9;
+  --am-placeholder: #d9dde6;
+  --am-border: #e3e7ee;
+  --am-ink: #1c2230;
+  --am-muted: #6b7280;
+
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --bs-body-color: var(--am-ink);
+  --bs-body-bg: #fff;
+  --bs-border-color: var(--am-border);
+  --bs-secondary-color: var(--am-muted);
+  --bs-link-color: var(--am-navy);
+  --bs-link-color-rgb: 22, 33, 58;
+  --bs-link-hover-color: var(--am-orange-hover);
+  --bs-link-hover-color-rgb: 224, 96, 31;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--am-ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--am-orange);
+  outline-offset: 2px;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-font-weight: 500;
+  --bs-btn-padding-y: 0.6rem;
+  --bs-btn-padding-x: 1.1rem;
+}
+
+.btn-brand {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--am-orange);
+  --bs-btn-border-color: var(--am-orange);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--am-orange-hover);
+  --bs-btn-hover-border-color: var(--am-orange-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #cf5519;
+  --bs-btn-active-border-color: #cf5519;
+  --bs-btn-focus-shadow-rgb: 243, 111, 51;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--am-orange);
+  --bs-btn-disabled-border-color: var(--am-orange);
+}
+
+.btn-navy {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--am-navy);
+  --bs-btn-border-color: var(--am-navy);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--am-navy-soft);
+  --bs-btn-hover-border-color: var(--am-navy-soft);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--am-navy-soft);
+  --bs-btn-active-border-color: var(--am-navy-soft);
+  --bs-btn-focus-shadow-rgb: 22, 33, 58;
+}
+
+.btn-outline-navy {
+  --bs-btn-color: var(--am-navy);
+  --bs-btn-border-color: var(--am-navy);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--am-navy);
+  --bs-btn-hover-border-color: var(--am-navy);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--am-navy);
+  --bs-btn-active-border-color: var(--am-navy);
+  --bs-btn-focus-shadow-rgb: 22, 33, 58;
+}
+
+/* ---------- Superficies ---------- */
+.am-surface {
+  background: var(--am-surface);
+}
+
+.am-card {
+  background: #fff;
+  border: 1px solid var(--am-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.am-panel {
+  background: #fff;
+  border: 1px solid var(--am-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .am-panel {
+    padding: 1.75rem;
+  }
+}
+
+/* Recuadro gris de los mockups (con silueta de carro hasta que haya fotos) */
+.am-img {
+  display: block;
+  aspect-ratio: 16 / 10;
+  background-color: var(--am-placeholder);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 32' fill='none' stroke='%23a9b1c1' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22v-5l5-1 6-7h22l7 7 8 1v5'/%3E%3Cpath d='M6 22h52'/%3E%3Ccircle cx='18' cy='24' r='4' fill='%23d9dde6'/%3E%3Ccircle cx='46' cy='24' r='4' fill='%23d9dde6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(42%, 150px);
+}
+
+.am-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.am-price {
+  color: var(--am-orange-text);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Banda oscura de encabezado (Cotizar, Financiamiento) */
+.am-page-hero {
+  background: var(--am-navy);
+  color: #fff;
+  padding: 2.25rem 0;
+}
+
+.am-page-hero h1 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.am-page-hero p {
+  color: #d3d9e6;
+  margin: 0;
+}
+
+/* ---------- Formularios ---------- */
+.form-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+  border-color: var(--am-border);
+  border-radius: 0.5rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  padding-left: 0.8rem;
+  color: var(--am-ink);
+}
+
+.form-control {
+  padding-right: 0.8rem;
+}
+
+.breadcrumb a {
+  color: var(--am-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--am-ink);
+  text-decoration: underline;
+}
+
+.form-control::placeholder {
+  color: #8b93a1;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--am-navy);
+  box-shadow: 0 0 0 0.2rem rgba(243, 111, 51, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--am-navy);
+  border-color: var(--am-navy);
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+}
+
+/* ---------- Paginación ---------- */
+.am-pager {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.am-pager button {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--am-muted);
+  font-weight: 500;
+}
+
+.am-pager button:hover:not(:disabled) {
+  background: var(--am-surface);
+  color: var(--am-ink);
+}
+
+.am-pager button[aria-current='page'] {
+  background: var(--am-navy);
+  color: #fff;
+}
+
+.am-pager button:disabled {
+  opacity: 0.35;
+}

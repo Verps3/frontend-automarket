@@ -1,0 +1,84 @@
+<div class="container-xl py-4 py-md-5">
+  <h1 class="h2 fw-bold mb-4">Contactar vendedor</h1>
+
+  <div class="row g-4">
+    <div class="col-lg-5 order-2 order-lg-1">
+      <div class="d-flex flex-column gap-3">
+        <div class="am-card p-3 d-flex align-items-center gap-3">
+          <div class="avatar" aria-hidden="true">NR</div>
+          <div>
+            <p class="fw-semibold fs-5 mb-0">Nicolas Rodriguez</p>
+            <p class="text-secondary mb-0">Asesor comercial · AutoMarket</p>
+          </div>
+        </div>
+
+        <a class="am-card p-3 d-flex align-items-center gap-3 text-decoration-none text-reset"
+           [routerLink]="['/catalogo', auto().id]">
+          <div class="am-img miniatura rounded-2" aria-hidden="true"></div>
+          <div>
+            <p class="fw-semibold fs-5 mb-1">{{ auto().nombre }} {{ auto().anio }}</p>
+            <p class="am-price">{{ auto().precio | cop }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-7 order-1 order-lg-2">
+      <section class="am-panel" aria-labelledby="titulo-form">
+        <h2 id="titulo-form" class="h5 fw-bold mb-1">Escríbele al vendedor</h2>
+        <p class="text-secondary mb-4">Responde normalmente en menos de una hora.</p>
+
+        @if (enviado(); as canal) {
+          <div class="alert alert-success" role="status">
+            Mensaje enviado. Nicolas te contactará por {{ canal }}.
+          </div>
+        }
+
+        <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+          <div class="row g-3">
+            <div class="col-md-8">
+              <label class="form-label" for="c-nombre">Nombre completo</label>
+              <input id="c-nombre" class="form-control" formControlName="nombre" placeholder="Jhon Doe"
+                     autocomplete="name" [class.is-invalid]="malo(form.controls.nombre)" />
+              <div class="invalid-feedback">Escribe tu nombre completo.</div>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label" for="c-telefono">Teléfono</label>
+              <input id="c-telefono" class="form-control" formControlName="telefono" placeholder="3001234567"
+                     type="tel" autocomplete="tel" [class.is-invalid]="malo(form.controls.telefono)" />
+              <div class="invalid-feedback">Usa entre 7 y 15 dígitos.</div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label" for="c-correo">Correo electrónico</label>
+              <input id="c-correo" class="form-control" formControlName="correo" placeholder="JhonDoe@correo.com"
+                     type="email" autocomplete="email" [class.is-invalid]="malo(form.controls.correo)" />
+              <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre&#64;correo.com.</div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label" for="c-canal">Prefiero que me contacten por</label>
+              <select id="c-canal" class="form-select" formControlName="canal">
+                <option value="whatsapp">Whatsapp</option>
+                <option value="llamada">Llamada telefónica</option>
+                <option value="correo">Correo electrónico</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label" for="c-mensaje">Mensaje</label>
+              <textarea id="c-mensaje" class="form-control" rows="4" formControlName="mensaje"
+                        [class.is-invalid]="malo(form.controls.mensaje)"></textarea>
+              <div class="invalid-feedback">Cuéntanos un poco más (mínimo 10 caracteres).</div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-brand btn-lg fs-6 w-100">Enviar el mensaje</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

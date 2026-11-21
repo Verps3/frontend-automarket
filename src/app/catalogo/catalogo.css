@@ -1,0 +1,19 @@
+.buscador {
+  background: var(--am-surface);
+  max-width: 100%;
+}
+
+.pastilla {
+  width: auto;
+  max-width: 100%;
+  background-color: var(--am-surface);
+  border-radius: 999px;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .buscador {
+    width: 20rem;
+  }
+}

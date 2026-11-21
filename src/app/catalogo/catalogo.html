@@ -1,0 +1,86 @@
+<section class="border-bottom">
+  <div class="container-xl py-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <h1 class="h2 fw-bold mb-0">Catálogo de vehículos</h1>
+      <input
+        type="search"
+        class="form-control buscador"
+        placeholder="Buscar por modelo..."
+        aria-label="Buscar por modelo"
+        [value]="busqueda()"
+        (input)="cambiar('busqueda', $event)"
+      />
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-3" role="group" aria-label="Filtros">
+      <select class="form-select pastilla" aria-label="Filtrar por marca" (change)="cambiar('marca', $event)">
+        <option value="" [selected]="!marca()">Marca: todas</option>
+        @for (m of marcas; track m) {
+          <option [value]="m" [selected]="m === marca()">{{ m }}</option>
+        }
+      </select>
+
+      <select class="form-select pastilla" aria-label="Filtrar por precio" (change)="cambiar('precio', $event)">
+        <option value="" [selected]="!precio()">Precio: todos</option>
+        @for (r of rangosPrecio; track r.id) {
+          <option [value]="r.id" [selected]="r.id === precio()">{{ r.etiqueta }}</option>
+        }
+      </select>
+
+      <select class="form-select pastilla" aria-label="Filtrar por kilometraje" (change)="cambiar('km', $event)">
+        <option value="" [selected]="!km()">Kilometraje: todos</option>
+        @for (r of rangosKm; track r.id) {
+          <option [value]="r.id" [selected]="r.id === km()">{{ r.etiqueta }}</option>
+        }
+      </select>
+
+      <select class="form-select pastilla" aria-label="Filtrar por año" (change)="cambiar('anio', $event)">
+        <option value="" [selected]="!anio()">Año: todos</option>
+        @for (a of anios; track a) {
+          <option [value]="a" [selected]="'' + a === anio()">{{ a }}</option>
+        }
+      </select>
+
+      @if (hayFiltros()) {
+        <button type="button" class="btn btn-link text-decoration-none" (click)="limpiar()">Limpiar filtros</button>
+      }
+    </div>
+  </div>
+</section>
+
+<section id="listado" class="container-xl py-4 py-md-5">
+  <p class="text-secondary small mb-3" aria-live="polite">
+    {{ filtrados().length }} {{ filtrados().length === 1 ? 'vehículo' : 'vehículos' }}
+  </p>
+
+  @if (visibles().length) {
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+      @for (v of visibles(); track v.id) {
+        <div class="col">
+          <app-vehiculo-card [vehiculo]="v" accion="ver" />
+        </div>
+      }
+    </div>
+
+    @if (totalPaginas() > 1) {
+      <nav class="am-pager mt-5" aria-label="Paginación del catálogo">
+        <button type="button" aria-label="Página anterior" [disabled]="pagina() === 1" (click)="irA(pagina() - 1)">&lt;</button>
+        @for (n of paginas(); track n) {
+          <button
+            type="button"
+            [attr.aria-current]="n === pagina() ? 'page' : null"
+            [attr.aria-label]="'Página ' + n"
+            (click)="irA(n)"
+          >{{ n }}</button>
+        }
+        <button type="button" aria-label="Página siguiente" [disabled]="pagina() === totalPaginas()" (click)="irA(pagina() + 1)">&gt;</button>
+      </nav>
+    }
+  } @else {
+    <div class="text-center py-5">
+      <h2 class="h4">No hay vehículos con esos filtros</h2>
+      <p class="text-secondary">Prueba con otro modelo o quita algún filtro.</p>
+      <button type="button" class="btn btn-brand" (click)="limpiar()">Limpiar filtros</button>
+    </div>
+  }
+</section>

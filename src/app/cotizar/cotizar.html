@@ -1,0 +1,92 @@
+<section class="am-page-hero">
+  <div class="container-xl">
+    <h1>Solicita tu cotización</h1>
+    <p>Recibe un precio personalizado y opciones de entrega para el vehículo que quieras.</p>
+  </div>
+</section>
+
+<div class="container-xl py-4 py-md-5">
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <section class="am-panel" aria-labelledby="titulo-form">
+        <h2 id="titulo-form" class="h5 fw-bold mb-1">Datos de la cotización</h2>
+        <p class="text-secondary mb-4">Cuéntanos qué buscas y te enviamos el detalle por correo.</p>
+
+        @if (enviado()) {
+          <div class="alert alert-success" role="status">
+            Recibimos tu solicitud. Te enviaremos la cotización por correo.
+          </div>
+        }
+
+        <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+          <div class="row g-3">
+            <div class="col-md-7">
+              <label class="form-label" for="q-nombre">Nombre completo</label>
+              <input id="q-nombre" class="form-control" formControlName="nombre" placeholder="Jhon Doe"
+                     autocomplete="name" [class.is-invalid]="malo(form.controls.nombre)" />
+              <div class="invalid-feedback">Escribe tu nombre completo.</div>
+            </div>
+
+            <div class="col-md-5">
+              <label class="form-label" for="q-documento">Cédula / NIT</label>
+              <input id="q-documento" class="form-control" formControlName="documento" placeholder="1098290210"
+                     inputmode="numeric" [class.is-invalid]="malo(form.controls.documento)" />
+              <div class="invalid-feedback">Solo números (NIT: con guion y dígito de verificación).</div>
+            </div>
+
+            <div class="col-md-7">
+              <label class="form-label" for="q-correo">Correo electrónico</label>
+              <input id="q-correo" class="form-control" formControlName="correo" placeholder="JhonDoe@correo.com"
+                     type="email" autocomplete="email" [class.is-invalid]="malo(form.controls.correo)" />
+              <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre&#64;correo.com.</div>
+            </div>
+
+            <div class="col-md-5">
+              <label class="form-label" for="q-telefono">Teléfono</label>
+              <input id="q-telefono" class="form-control" formControlName="telefono" placeholder="3001234567"
+                     type="tel" autocomplete="tel" [class.is-invalid]="malo(form.controls.telefono)" />
+              <div class="invalid-feedback">Usa entre 7 y 15 dígitos.</div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label" for="q-vehiculo">Vehículo de interés</label>
+              <select id="q-vehiculo" class="form-select" formControlName="vehiculo">
+                @for (v of vehiculos; track v.id) {
+                  <option [ngValue]="v.id">{{ v.nombre }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check border rounded-3 p-3 ps-5">
+                <input id="q-entrega" type="checkbox" class="form-check-input" formControlName="entrega" />
+                <label class="form-check-label" for="q-entrega">
+                  Tengo un vehículo para entregar como parte de pago
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-brand btn-lg fs-6 w-100">Enviar el mensaje</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="col-lg-5 offset-lg-1">
+      <section class="am-panel" aria-labelledby="titulo-incluye">
+        <h2 id="titulo-incluye" class="h4 fw-bold mb-3">¿Qué incluye tu cotización?</h2>
+        <ul class="list-unstyled mb-3">
+          @for (item of incluye; track item) {
+            <li class="d-flex justify-content-between gap-3 py-2">
+              <span class="text-secondary">{{ item }}</span>
+              <span class="fw-medium">Incluido</span>
+            </li>
+          }
+        </ul>
+        <p class="text-secondary mb-0">Validez de la cotización: 15 días calendario.</p>
+      </section>
+    </div>
+  </div>
+</div>

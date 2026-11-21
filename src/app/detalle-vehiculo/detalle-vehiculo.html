@@ -1,0 +1,102 @@
+@if (vehiculo(); as v) {
+  <div class="container-xl pt-3">
+    <nav aria-label="Ruta de navegación">
+      <ol class="breadcrumb small mb-3">
+        <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+        <li class="breadcrumb-item"><a routerLink="/catalogo">Catálogo</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ v.nombre }}</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4">
+      <!-- Galería -->
+      <div class="col-lg-7">
+        <div class="am-img principal rounded-3">
+          @if (galeria()[seleccionada()]; as foto) {
+            <img [src]="foto" [alt]="v.nombre" />
+          }
+        </div>
+
+        <div class="d-flex gap-2 gap-md-3 mt-3">
+          @for (foto of galeria(); track $index) {
+            <button
+              type="button"
+              class="miniatura am-img rounded-3"
+              [class.activa]="$index === seleccionada()"
+              [attr.aria-pressed]="$index === seleccionada()"
+              [attr.aria-label]="'Ver foto ' + ($index + 1)"
+              (click)="seleccionada.set($index)"
+            >
+              @if (foto) {
+                <img [src]="foto" alt="" />
+              }
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Resumen y acciones -->
+      <div class="col-lg-5">
+        <aside class="am-panel">
+          <h1 class="h4 fw-bold mb-1">{{ v.nombre }} {{ v.anio }}</h1>
+          <p class="text-secondary small mb-3">
+            {{ v.transmision }} · {{ v.combustible }} · {{ v.kilometraje | km }}
+          </p>
+          <p class="am-price precio-grande pb-3 mb-3 border-bottom">{{ v.precio | cop }}</p>
+
+          <ul class="list-unstyled small mb-4">
+            <li class="mb-1">Año: {{ v.anio }}</li>
+            <li class="mb-1">Motor: {{ v.motor }}</li>
+            <li class="mb-1">Transmisión: {{ v.transmision }}</li>
+            <li>Color: {{ v.color }}</li>
+          </ul>
+
+          <div class="d-grid gap-2">
+            <a class="btn btn-brand btn-lg fs-6" routerLink="/contacto" [queryParams]="{ vehiculo: v.id }">
+              Contactar vendedor
+            </a>
+            <a class="btn btn-outline-navy btn-lg fs-6" routerLink="/financiamiento" [queryParams]="{ vehiculo: v.id }">
+              Simular financiamiento
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="container-xl border-top mt-4 py-4">
+    <h2 class="h5 fw-bold">Descripción</h2>
+    <p class="text-secondary mb-0 descripcion">{{ v.descripcion }}</p>
+  </section>
+
+  <section class="container-xl border-top py-4">
+    <h2 class="h5 fw-bold mb-3">Ficha técnica</h2>
+    <dl class="ficha mb-0">
+      @for (fila of ficha(); track fila[0]) {
+        <div class="fila">
+          <dt>{{ fila[0] }}</dt>
+          <dd>{{ fila[1] }}</dd>
+        </div>
+      }
+    </dl>
+  </section>
+
+  <section class="border-top py-4 pb-5" aria-labelledby="titulo-relacionados">
+    <div class="container-xl">
+      <h2 id="titulo-relacionados" class="h6 fw-bold text-center mb-4">Vehículos relacionados</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        @for (r of relacionados(); track r.id) {
+          <div class="col">
+            <app-vehiculo-card [vehiculo]="r" accion="ver" />
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <div class="container-xl py-5 text-center">
+    <h1 class="h3">No encontramos este vehículo</h1>
+    <p class="text-secondary">Puede que ya se haya vendido o que el enlace esté incompleto.</p>
+    <a routerLink="/catalogo" class="btn btn-brand">Ver el catálogo</a>
+  </div>
+}
