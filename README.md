@@ -1,4 +1,4 @@
-<img width="1913" height="880" alt="image" src="https://github.com/user-attachments/assets/e29128a4-aa10-4334-b270-ca1bcfcdce55" /># AutoMarket (frontend)
+# AutoMarket (frontend)
 
 Angular 22 + Bootstrap 5.3, con las mismas convenciones que `frontend-mascotas`
 (componentes standalone, `@for`, Bootstrap cargado desde `angular.json`).
