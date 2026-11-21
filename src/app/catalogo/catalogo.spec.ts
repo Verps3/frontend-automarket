@@ -20,16 +20,16 @@ describe('Catalogo', () => {
     expect(el.querySelectorAll('.am-pager button').length).toBe(6); // < 1 2 3 4 >
   });
 
-  it('filtra por texto y vuelve a la página 1', async () => {
+  it('filtra por texto (marca) y vuelve a la página 1', async () => {
     const fixture = await crear();
     const el = fixture.nativeElement as HTMLElement;
     const input = el.querySelector('input[type=search]') as HTMLInputElement;
-    input.value = 'pickup';
+    input.value = 'toyota';
     input.dispatchEvent(new Event('input'));
     await fixture.whenStable();
     const nombres = [...el.querySelectorAll('app-vehiculo-card h3')].map((h) => h.textContent);
     expect(nombres.length).toBeGreaterThan(0);
-    expect(nombres.every((n) => n!.includes('Pickup'))).toBe(true);
+    expect(nombres.every((n) => n!.includes('Toyota'))).toBe(true);
   });
 
   it('muestra estado vacío si nada coincide', async () => {

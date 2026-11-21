@@ -14,7 +14,7 @@ describe('Contacto', () => {
     const el = fixture.nativeElement as HTMLElement;
 
     const mensaje = el.querySelector('textarea') as HTMLTextAreaElement;
-    expect(mensaje.value).toBe('Hola, estoy interesado en el Sedán Modelo X. ¿Sigue disponible?');
+    expect(mensaje.value).toBe('Hola, estoy interesado en el Mazda 3 Sedan. ¿Sigue disponible?');
 
     (el.querySelector('form') as HTMLFormElement).dispatchEvent(new Event('submit'));
     await fixture.whenStable();
