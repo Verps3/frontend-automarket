@@ -6,7 +6,7 @@ export type Combustible = 'Gasolina' | 'Diésel' | 'Híbrido' | 'Eléctrico';
 
 export interface Vehiculo {
   id: number;
-  nombre: string; // "Sedán Modelo X"
+  nombre: string; // "Mazda 3 Sedan" (marca + modelo)
   carroceria: Carroceria;
   modelo: string;
   marca: string;
@@ -28,56 +28,53 @@ type Fila = [
   Transmision, Combustible, string, string, number,
 ];
 
-// carrocería, modelo, marca, año, km, precio, transmisión, combustible, color, motor, puertas
-// Datos de ejemplo: reemplazar por la respuesta de la API cuando exista el backend.
+// carrocería, marca, modelo, año, km, precio, transmisión, combustible, color, motor, puertas
+// Datos de ejemplo (servicio mock): reemplazar por la respuesta de la API cuando exista el backend.
 const FILAS: Fila[] = [
-  ['Sedán', 'X', 'Genérica', 2024, 15000, 85_000_000, 'Automática', 'Gasolina', 'Gris Titanio', '2.0L Turbo', 4],
-  ['SUV', 'Y', 'Aurora', 2023, 28000, 120_000_000, 'Automática', 'Gasolina', 'Negro Obsidiana', '2.5L Turbo', 5],
-  ['Hatchback', 'Z', 'Vektra', 2022, 41000, 62_000_000, 'Manual', 'Gasolina', 'Rojo Rubí', '1.6L', 5],
-  ['Pickup', 'A', 'Solana', 2023, 33000, 150_000_000, 'Automática', 'Diésel', 'Blanco Glaciar', '2.8L Turbodiésel', 4],
-  ['Coupé', 'B', 'Aurora', 2024, 9000, 98_000_000, 'Automática', 'Gasolina', 'Azul Medianoche', '2.0L Turbo', 2],
-  ['Sedán', 'C', 'Vektra', 2021, 52000, 73_000_000, 'Automática', 'Gasolina', 'Plata Lunar', '1.8L', 4],
-  ['SUV', 'D', 'Solana', 2022, 47000, 105_000_000, 'Automática', 'Híbrido', 'Verde Pino', '2.0L Híbrido', 5],
-  ['Hatchback', 'E', 'Genérica', 2023, 22000, 58_000_000, 'Manual', 'Gasolina', 'Blanco', '1.4L', 5],
-  ['Sedán', 'F', 'Aurora', 2020, 78000, 55_000_000, 'Manual', 'Gasolina', 'Gris Grafito', '1.6L', 4],
-  ['Pickup', 'G', 'Vektra', 2022, 60000, 138_000_000, 'Automática', 'Diésel', 'Gris Acero', '2.4L Turbodiésel', 4],
-  ['SUV', 'H', 'Genérica', 2024, 12000, 132_000_000, 'Automática', 'Híbrido', 'Blanco Perla', '2.0L Híbrido', 5],
-  ['Coupé', 'I', 'Solana', 2021, 36000, 112_000_000, 'Automática', 'Gasolina', 'Naranja Solar', '3.0L Turbo', 2],
-  ['Hatchback', 'J', 'Aurora', 2024, 5000, 68_000_000, 'Automática', 'Gasolina', 'Azul Cobalto', '1.5L Turbo', 5],
-  ['Sedán', 'K', 'Solana', 2023, 19000, 89_000_000, 'Automática', 'Gasolina', 'Negro', '2.0L', 4],
-  ['SUV', 'L', 'Vektra', 2021, 66000, 92_000_000, 'Automática', 'Gasolina', 'Beige Arena', '2.4L', 5],
-  ['Pickup', 'M', 'Genérica', 2020, 91000, 118_000_000, 'Manual', 'Diésel', 'Blanco', '2.5L Turbodiésel', 4],
-  ['Sedán', 'N', 'Genérica', 2022, 38000, 76_000_000, 'Automática', 'Gasolina', 'Azul Acero', '1.8L', 4],
-  ['Coupé', 'O', 'Vektra', 2023, 14000, 125_000_000, 'Automática', 'Gasolina', 'Rojo Carmesí', '2.5L Turbo', 2],
-  ['Hatchback', 'P', 'Solana', 2021, 57000, 52_000_000, 'Manual', 'Gasolina', 'Amarillo', '1.2L', 5],
-  ['SUV', 'Q', 'Aurora', 2024, 7000, 145_000_000, 'Automática', 'Eléctrico', 'Gris Titanio', 'Eléctrico 150 kW', 5],
-  ['Sedán', 'R', 'Aurora', 2022, 44000, 81_000_000, 'Automática', 'Híbrido', 'Plata', '1.8L Híbrido', 4],
-  ['Pickup', 'S', 'Solana', 2021, 72000, 129_000_000, 'Automática', 'Diésel', 'Negro', '2.8L Turbodiésel', 4],
-  ['Hatchback', 'T', 'Genérica', 2022, 31000, 64_000_000, 'Automática', 'Gasolina', 'Gris Claro', '1.6L', 5],
-  ['SUV', 'U', 'Vektra', 2023, 25000, 99_000_000, 'Automática', 'Gasolina', 'Verde Oliva', '2.0L', 5],
+  ['Sedán', 'Mazda', '3 Sedan', 2024, 15000, 85_000_000, 'Automática', 'Gasolina', 'Gris', '2.0L', 4],
+  ['SUV', 'Mazda', 'CX-5', 2023, 28000, 120_000_000, 'Automática', 'Gasolina', 'Negro', '2.5L', 5],
+  ['Hatchback', 'Mazda', '2', 2022, 41000, 62_000_000, 'Manual', 'Gasolina', 'Rojo', '1.5L', 5],
+  ['Pickup', 'Toyota', 'Hilux', 2023, 33000, 150_000_000, 'Automática', 'Diésel', 'Blanco', '2.8L Turbodiésel', 4],
+  ['Coupé', 'Hyundai', 'Veloster', 2020, 38000, 98_000_000, 'Automática', 'Gasolina', 'Azul', '1.6L Turbo', 3],
+  ['Sedán', 'Toyota', 'Corolla', 2021, 52000, 73_000_000, 'Automática', 'Gasolina', 'Plata', '1.8L', 4],
+  ['SUV', 'Toyota', 'RAV4', 2022, 47000, 105_000_000, 'Automática', 'Gasolina', 'Verde', '2.5L', 5],
+  ['Hatchback', 'Volkswagen', 'Polo', 2023, 22000, 58_000_000, 'Manual', 'Gasolina', 'Blanco', '1.6L', 5],
+  ['Sedán', 'Nissan', 'Versa', 2020, 78000, 55_000_000, 'Manual', 'Gasolina', 'Gris oscuro', '1.6L', 4],
+  ['Pickup', 'Nissan', 'Frontier', 2022, 60000, 138_000_000, 'Automática', 'Diésel', 'Gris', '2.3L Turbodiésel', 4],
+  ['SUV', 'Toyota', 'RAV4 Hybrid', 2024, 12000, 132_000_000, 'Automática', 'Híbrido', 'Blanco', '2.5L Híbrido', 5],
+  ['Coupé', 'Chevrolet', 'Camaro', 2021, 36000, 112_000_000, 'Automática', 'Gasolina', 'Naranja', '3.6L V6', 2],
+  ['Hatchback', 'Suzuki', 'Swift', 2024, 5000, 68_000_000, 'Automática', 'Gasolina', 'Azul', '1.2L', 5],
+  ['Sedán', 'Kia', 'Cerato', 2023, 19000, 89_000_000, 'Automática', 'Gasolina', 'Negro', '2.0L', 4],
+  ['SUV', 'Kia', 'Sportage', 2021, 66000, 92_000_000, 'Automática', 'Gasolina', 'Beige', '2.0L', 5],
+  ['Pickup', 'Chevrolet', 'D-Max', 2020, 91000, 118_000_000, 'Manual', 'Diésel', 'Blanco', '3.0L Turbodiésel', 4],
+  ['Sedán', 'Honda', 'Civic', 2022, 38000, 76_000_000, 'Automática', 'Gasolina', 'Azul', '1.5L Turbo', 4],
+  ['Coupé', 'Ford', 'Mustang', 2023, 14000, 125_000_000, 'Automática', 'Gasolina', 'Rojo', '2.3L EcoBoost', 2],
+  ['Hatchback', 'Renault', 'Kwid', 2021, 57000, 52_000_000, 'Manual', 'Gasolina', 'Amarillo', '1.0L', 5],
+  ['SUV', 'BYD', 'Yuan Plus', 2024, 7000, 145_000_000, 'Automática', 'Eléctrico', 'Gris', 'Eléctrico 150 kW', 5],
+  ['Sedán', 'Toyota', 'Corolla Hybrid', 2022, 44000, 81_000_000, 'Automática', 'Híbrido', 'Plata', '1.8L Híbrido', 4],
+  ['Pickup', 'Ford', 'Ranger', 2021, 72000, 129_000_000, 'Automática', 'Diésel', 'Negro', '2.0L Biturbo', 4],
+  ['Hatchback', 'Volkswagen', 'Polo', 2022, 31000, 64_000_000, 'Automática', 'Gasolina', 'Gris claro', '1.6L', 5],
+  ['SUV', 'Jeep', 'Compass', 2023, 25000, 99_000_000, 'Automática', 'Gasolina', 'Verde oliva', '2.0L', 5],
 ];
 
 const DESCRIPCION_X =
   'Vehículo en excelente estado, único dueño, mantenimientos al día, revisión técnico-mecánica vigente. Ideal para ciudad y carretera.';
 
-/** Fotos por vehículo: public/images/vehiculos/<id>/1..3.svg (cambia la extensión a 'jpg' si usas fotos reales). */
-const FOTOS_POR_VEHICULO = 3;
-const EXTENSION_FOTO = 'svg';
-const fotosDe = (id: number): string[] =>
-  Array.from(
-    { length: FOTOS_POR_VEHICULO },
-    (_, n) => `images/vehiculos/${id}/${n + 1}.${EXTENSION_FOTO}`,
-  );
+/**
+ * Fotos de cada vehículo: public/images/vehiculos/<id>/1.jpg, 2.jpg y 3.jpg
+ * (la 1 es la portada). Solo hay que copiar los archivos con ese nombre.
+ */
+const fotosDe = (id: number): string[] => [1, 2, 3].map((n) => `images/vehiculos/${id}/${n}.jpg`);
 
 const VEHICULOS: Vehiculo[] = FILAS.map(
-  ([carroceria, modelo, marca, anio, kilometraje, precio, transmision, combustible, color, motor, puertas], i) => ({
+  ([carroceria, marca, modelo, anio, kilometraje, precio, transmision, combustible, color, motor, puertas], i) => ({
     id: i + 1,
-    nombre: `${carroceria} Modelo ${modelo}`,
+    nombre: `${marca} ${modelo}`,
     carroceria, modelo, marca, anio, kilometraje, precio, transmision, combustible, color, motor, puertas,
     descripcion:
       i === 0
         ? DESCRIPCION_X
-        : `${carroceria} ${anio} en muy buen estado, mantenimientos al día y revisión técnico-mecánica vigente. Peritado por AutoMarket y con garantía incluida.`,
+        : `${marca} ${modelo} ${anio} en muy buen estado, mantenimientos al día y revisión técnico-mecánica vigente. Peritado por AutoMarket y con garantía incluida.`,
     imagenes: fotosDe(i + 1),
   }),
 );

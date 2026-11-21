@@ -53,7 +53,7 @@ export class Catalogo {
 
     return this.servicio.lista.filter(
       (v) =>
-        (!q || normalizar(`${v.nombre} ${v.marca}`).includes(q)) &&
+        (!q || normalizar(`${v.nombre} ${v.carroceria}`).includes(q)) &&
         (!this.marca() || v.marca === this.marca()) &&
         (!rPrecio || rPrecio.cumple(v.precio)) &&
         (!rKm || rKm.cumple(v.kilometraje)) &&

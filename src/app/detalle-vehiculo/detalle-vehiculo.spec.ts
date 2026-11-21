@@ -14,9 +14,9 @@ describe('DetalleVehiculo', () => {
     return fixture.nativeElement as HTMLElement;
   };
 
-  it('muestra la ficha del Sedán Modelo X 2024', async () => {
+  it('muestra la ficha del Mazda 3 Sedan 2024', async () => {
     const el = await crear('1');
-    expect(el.querySelector('h1')?.textContent).toContain('Sedán Modelo X 2024');
+    expect(el.querySelector('h1')?.textContent).toContain('Mazda 3 Sedan 2024');
     expect(el.textContent).toContain('$ 85.000.000');
     expect(el.textContent).toContain('15.000 km');
     expect(el.querySelectorAll('app-vehiculo-card').length).toBe(3);

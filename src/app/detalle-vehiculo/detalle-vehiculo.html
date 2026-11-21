@@ -13,7 +13,7 @@
       <div class="col-lg-7">
         <div class="am-img principal rounded-3">
           @if (galeria()[seleccionada()]; as foto) {
-            <img [src]="foto" [alt]="v.nombre" />
+            <img [src]="foto" [alt]="v.nombre" (error)="$any($event.target).style.display = 'none'" />
           }
         </div>
 
@@ -28,7 +28,7 @@
               (click)="seleccionada.set($index)"
             >
               @if (foto) {
-                <img [src]="foto" alt="" />
+                <img [src]="foto" alt="" (error)="$any($event.target).style.display = 'none'" />
               }
             </button>
           }
