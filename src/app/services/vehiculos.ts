@@ -19,7 +19,7 @@ export interface Vehiculo {
   motor: string;
   puertas: number;
   descripcion: string;
-  /** URLs de fotos. Vacío = se muestra el recuadro gris del mockup. */
+  /** Rutas de las fotos (la primera es la portada). Vacío = recuadro gris del mockup. */
   imagenes: string[];
 }
 
@@ -60,6 +60,15 @@ const FILAS: Fila[] = [
 const DESCRIPCION_X =
   'Vehículo en excelente estado, único dueño, mantenimientos al día, revisión técnico-mecánica vigente. Ideal para ciudad y carretera.';
 
+/** Fotos por vehículo: public/images/vehiculos/<id>/1..3.svg (cambia la extensión a 'jpg' si usas fotos reales). */
+const FOTOS_POR_VEHICULO = 3;
+const EXTENSION_FOTO = 'svg';
+const fotosDe = (id: number): string[] =>
+  Array.from(
+    { length: FOTOS_POR_VEHICULO },
+    (_, n) => `images/vehiculos/${id}/${n + 1}.${EXTENSION_FOTO}`,
+  );
+
 const VEHICULOS: Vehiculo[] = FILAS.map(
   ([carroceria, modelo, marca, anio, kilometraje, precio, transmision, combustible, color, motor, puertas], i) => ({
     id: i + 1,
@@ -69,7 +78,7 @@ const VEHICULOS: Vehiculo[] = FILAS.map(
       i === 0
         ? DESCRIPCION_X
         : `${carroceria} ${anio} en muy buen estado, mantenimientos al día y revisión técnico-mecánica vigente. Peritado por AutoMarket y con garantía incluida.`,
-    imagenes: [],
+    imagenes: fotosDe(i + 1),
   }),
 );
 

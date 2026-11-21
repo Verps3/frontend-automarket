@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Hatchback Blanco">
+  <defs>
+    <linearGradient id="f1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6fb"/><stop offset="1" stop-color="#d9dde6"/></linearGradient>
+    <linearGradient id="f2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d2f66"/><stop offset=".55" stop-color="#e0735a"/><stop offset="1" stop-color="#f6b56b"/></linearGradient>
+    <linearGradient id="f3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#26335c"/></linearGradient>
+    <linearGradient id="brillo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f7f5"/><stop offset=".45" stop-color="#f3f3f1"/><stop offset="1" stop-color="#969695"/></linearGradient>
+    <linearGradient id="vidrio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fb4cc"/><stop offset="1" stop-color="#3f5068"/></linearGradient>
+  </defs>
+  <g transform="matrix(1 0 0 1 0 0)">
+  <rect width="800" height="500" fill="url(#f1)"/>
+  <rect y="412" width="800" height="88" fill="#cfd4de"/>
+  <rect y="412" width="800" height="3" fill="#b6bccb"/>
+  <ellipse cx="400" cy="414" rx="340" ry="14" fill="#000" opacity=".28"/>
+  <path d="M85 370 L85 285 Q85 268 102 262 L172 206 Q184 198 205 198 L478 198 Q503 198 519 216 L590 284 L686 297 Q720 302 720 335 L720 370 Z" fill="url(#brillo)" stroke="#969695" stroke-width="3" stroke-linejoin="round" fill-rule="evenodd"/>
+  <path d="M188 262 L222 218 L335 218 L335 262 Z" fill="url(#vidrio)"/><path d="M350 262 L350 218 L474 218 L540 262 Z" fill="url(#vidrio)"/>
+  <path d="M342 285 L342 365" stroke="#969695" stroke-width="2.5" opacity=".7"/><rect x="356" y="298" width="26" height="5" rx="2.5" fill="#969695"/>
+  <circle cx="220" cy="362" r="60" fill="#12141b"/>
+  <circle cx="570" cy="362" r="60" fill="#12141b"/>
+  <circle cx="220" cy="362" r="57" fill="#12141b"/>
+  <circle cx="220" cy="362" r="48" fill="#23262f"/>
+  <circle cx="220" cy="362" r="29" fill="#c9ced8"/>
+  <circle cx="220" cy="362" r="22" fill="#8e95a3"/>
+  <circle cx="220" cy="362" r="9" fill="#3a3f4b"/>
+  <circle cx="570" cy="362" r="57" fill="#12141b"/>
+  <circle cx="570" cy="362" r="48" fill="#23262f"/>
+  <circle cx="570" cy="362" r="29" fill="#c9ced8"/>
+  <circle cx="570" cy="362" r="22" fill="#8e95a3"/>
+  <circle cx="570" cy="362" r="9" fill="#3a3f4b"/>
+  <path d="M700 312 L722 318 L722 336 L700 332 Z" fill="#fff6c8"/>
+  <rect x="80" y="318" width="14" height="22" rx="3" fill="#d6283b"/>
+  </g>
+</svg>
