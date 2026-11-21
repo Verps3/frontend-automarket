@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Coupé Azul Medianoche">
+  <defs>
+    <linearGradient id="f1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6fb"/><stop offset="1" stop-color="#d9dde6"/></linearGradient>
+    <linearGradient id="f2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d2f66"/><stop offset=".55" stop-color="#e0735a"/><stop offset="1" stop-color="#f6b56b"/></linearGradient>
+    <linearGradient id="f3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#26335c"/></linearGradient>
+    <linearGradient id="brillo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#666e80"/><stop offset=".45" stop-color="#14213d"/><stop offset="1" stop-color="#0c1425"/></linearGradient>
+    <linearGradient id="vidrio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fb4cc"/><stop offset="1" stop-color="#3f5068"/></linearGradient>
+  </defs>
+  <g transform="matrix(1 0 0 1 0 0)">
+  <rect width="800" height="500" fill="url(#f1)"/>
+  <rect y="412" width="800" height="88" fill="#cfd4de"/>
+  <rect y="412" width="800" height="3" fill="#b6bccb"/>
+  <ellipse cx="400" cy="414" rx="340" ry="14" fill="#000" opacity=".28"/>
+  <path d="M80 370 L80 322 Q80 304 110 300 L232 290 L328 232 Q344 222 370 222 L470 222 Q496 222 516 238 L592 292 L696 305 Q724 310 724 340 L724 370 Z" fill="url(#brillo)" stroke="#0c1425" stroke-width="3" stroke-linejoin="round" fill-rule="evenodd"/>
+  <path d="M258 288 L336 240 L468 240 L536 288 Z" fill="url(#vidrio)"/>
+  <path d="M400 285 L400 365" stroke="#0c1425" stroke-width="2.5" opacity=".7"/><rect x="414" y="298" width="26" height="5" rx="2.5" fill="#0c1425"/>
+  <circle cx="235" cy="362" r="62" fill="#12141b"/>
+  <circle cx="585" cy="362" r="62" fill="#12141b"/>
+  <circle cx="235" cy="362" r="59" fill="#12141b"/>
+  <circle cx="235" cy="362" r="50" fill="#23262f"/>
+  <circle cx="235" cy="362" r="31" fill="#c9ced8"/>
+  <circle cx="235" cy="362" r="24" fill="#8e95a3"/>
+  <circle cx="235" cy="362" r="9" fill="#3a3f4b"/>
+  <circle cx="585" cy="362" r="59" fill="#12141b"/>
+  <circle cx="585" cy="362" r="50" fill="#23262f"/>
+  <circle cx="585" cy="362" r="31" fill="#c9ced8"/>
+  <circle cx="585" cy="362" r="24" fill="#8e95a3"/>
+  <circle cx="585" cy="362" r="9" fill="#3a3f4b"/>
+  <path d="M700 312 L722 318 L722 336 L700 332 Z" fill="#fff6c8"/>
+  <rect x="80" y="318" width="14" height="22" rx="3" fill="#d6283b"/>
+  </g>
+</svg>
