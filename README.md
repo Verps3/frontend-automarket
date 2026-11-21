@@ -30,18 +30,24 @@ npm run build
 
 ## Fotos de los vehículos
 
-Cada vehículo tiene 3 fotos en `public/images/vehiculos/<id>/1..3.svg` (la 1 es la portada
-de las tarjetas y las 3 forman la galería del detalle). Son ilustraciones generadas con
-`python3 scripts/generar-imagenes.py`, que respetan la carrocería y el color de cada carro.
+Cada vehículo tiene una carpeta `public/images/vehiculos/<id>/` (cada una trae un `LEEME.txt`
+con el carro que le corresponde). Solo hay que copiar 3 fotos con estos nombres exactos:
 
-Para usar fotos reales: copia `1.jpg`, `2.jpg`, `3.jpg` en cada carpeta `<id>` y cambia
-`EXTENSION_FOTO` a `'jpg'` en `src/app/services/vehiculos.ts`. No hay que tocar ningún componente.
+```
+public/images/vehiculos/1/1.jpg   <- portada (tarjetas) y primera foto del detalle
+public/images/vehiculos/1/2.jpg
+public/images/vehiculos/1/3.jpg
+```
+
+No hay que tocar código: `services/vehiculos.ts` arma las rutas `images/vehiculos/<id>/<n>.jpg`.
+Mientras falte una foto se muestra el recuadro gris del mockup.
 
 ## Flujo de ramas
 
 - `main`: versión estable (la que se entrega).
 - `develop`: integración.
-- `feature/fotos-vehiculos`: fotos de los carros (ya integrada en `develop` y `main`).
+- `feature/fotos-vehiculos`: primera versión de las fotos (integrada).
+- `feature/autos-reales`: catálogo con marcas y modelos reales y fotos `.jpg` (integrada).
 
 ## Pendiente para conectar con backend
 

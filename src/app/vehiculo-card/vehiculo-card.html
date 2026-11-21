@@ -1,7 +1,7 @@
 <article class="am-card h-100 d-flex flex-column">
   <a class="am-img" [routerLink]="['/catalogo', vehiculo().id]" [attr.aria-label]="'Ver ' + vehiculo().nombre" tabindex="-1">
     @if (vehiculo().imagenes[0]; as foto) {
-      <img [src]="foto" [alt]="vehiculo().nombre" loading="lazy" />
+      <img [src]="foto" [alt]="vehiculo().nombre" loading="lazy" (error)="$any($event.target).style.display = 'none'" />
     }
   </a>
 

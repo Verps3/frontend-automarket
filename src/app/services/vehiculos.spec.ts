@@ -6,7 +6,7 @@ describe('Vehiculos', () => {
 
   it('trae los 3 destacados del mockup', () => {
     expect(servicio().destacados().map((v) => v.nombre)).toEqual([
-      'Sedán Modelo X', 'SUV Modelo Y', 'Hatchback Modelo Z',
+      'Mazda 3 Sedan', 'Mazda CX-5', 'Mazda 2',
     ]);
   });
 

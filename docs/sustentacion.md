@@ -4,7 +4,7 @@
 
 | Requisito | Evidencia en el proyecto |
 | --- | --- |
-| Repositorio (commits, 2 ramas) | `git log --oneline --graph --all`; ramas `main`, `develop`, `feature/fotos-vehiculos` |
+| Repositorio (commits, 2 ramas) | `git log --oneline --graph --all`; ramas `main`, `develop`, `feature/fotos-vehiculos`, `feature/autos-reales` |
 | Mínimo 6 componentes (1 de detalle) | `Navbar`, `Footer`, `Home`, `Catalogo`, `VehiculoCard`, `Contacto`, `Cotizar`, `Financiamiento` y **`DetalleVehiculo`** (detalle) |
 | Rutas dinámicas | `catalogo/:id` en `app.routes.ts`; el `id` llega al componente con `input.required<string>()` gracias a `withComponentInputBinding()` en `app.config.ts`. Además `?vehiculo=<id>` (query param) en contacto, cotizar y financiamiento |
 | Inglés (hablar, mín. 20 s) | Puntos para hablar en la sección 3 |
