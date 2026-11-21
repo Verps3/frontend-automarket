@@ -1,4 +1,4 @@
-# AutoMarket (frontend)
+<img width="1913" height="880" alt="image" src="https://github.com/user-attachments/assets/e29128a4-aa10-4334-b270-ca1bcfcdce55" /># AutoMarket (frontend)
 
 Angular 22 + Bootstrap 5.3, con las mismas convenciones que `frontend-mascotas`
 (componentes standalone, `@for`, Bootstrap cargado desde `angular.json`).
@@ -49,8 +49,5 @@ Mientras falte una foto se muestra el recuadro gris del mockup.
 - `feature/fotos-vehiculos`: primera versión de las fotos (integrada).
 - `feature/autos-reales`: catálogo con marcas y modelos reales y fotos `.jpg` (integrada).
 
-## Pendiente para conectar con backend
-
-- `src/app/services/vehiculos.ts`: reemplazar `VEHICULOS` por llamadas HTTP (`HttpClient`).
-- `Contacto.enviar()` y `Cotizar.enviar()`: hoy solo validan y muestran confirmación
-  (hay un `TODO` con el endpoint).
+## Uso de GitHub Pages 
+se uso Github Pages para subir la mustra de la pagina web https://verps3.github.io/frontend-automarket/
